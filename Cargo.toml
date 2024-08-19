@@ -1,0 +1,15 @@
+[package]
+name = "stellar-tui"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+reqwest = { version = "0.12.5", features = ["json"] }
+tokio = { version = "1.39.2", features = ["full"] }
+serde_json = "1.0.94"
+serde = { version = "1.0.192", features = ["derive"] }
+axum = "0.7.5"
+webbrowser = "1.0.1"
+crossterm = "0.28.1"
+prettytable = "0.10.0"
+stellar-rs = "0.3.2"

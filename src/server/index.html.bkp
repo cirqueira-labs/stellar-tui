@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Simple Signer - Connect Wallet Demo</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/stellar-sdk/10.1.0/stellar-sdk.min.js"
+            integrity="sha512-EqNQsxKR6rZ5xKl29xXa+ez7xgtVSUpj9UDzZmTqoyF0wHbusLkrP8S7dOsKa9DmkoHbssoWUA4+n/0KYY1EAQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+    </head>
+    <body>
+        <button onclick="openConnectWindow()">Connect</button>
+        <script>
+            const simpleSignerUrl = 'https://sign.bigger.systems';
+
+            function openConnectWindow() {
+                window.open(
+                    `${simpleSignerUrl}/connect`,
+                    'Connect_Window',
+                    'width=360, height=450',
+                );
+            }
+
+            function handleMessage(e) {
+                // Reject messages that are not coming from simple signer (tailor this according to your needs)
+                if (e.origin !== simpleSignerUrl) {
+                    return;
+                }
+
+                const messageEvent = e.data;
+
+                if (messageEvent.type === 'onConnect') {
+                    const publicKey = messageEvent.message.publicKey;
+                    // Validate the public key received. This is just good practice.
+                    if (StellarSdk.Keypair.fromPublicKey(publicKey)) {
+                        console.log('The public key is', publicKey);
+
+			// Enviar a chave pública para o servidor via POST
+                    fetch("/", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({ public_key: publicKey }),
+                    })
+                    .then(response => response.text())
+		.then(data => {
+					console.log(data);
+					window.close();  // Fecha o navegador ao final
+				    })
+		.catch(error => console.error('Erro:', error));
+
+
+                    }
+                }
+            }
+
+            // see https://developer.mozilla.org/en-US/docs/Web/API/Window/message_event
+            window.addEventListener('message', handleMessage);
+        </script>
+    </body>
+</html>
