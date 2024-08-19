@@ -1,7 +1,6 @@
 *This is a submission for the [Build Better on Stellar: Smart Contract Challenge ](https://dev.to/challenges/stellar): stellar-tui 
 a terminal user interface for Horizon Stellar*
 
-
 ![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/a3j0lz5425y8ennyy941.jpeg)
 
 ## Your Tutorial
@@ -18,9 +17,16 @@ In the initial version, the application supports:
 
 * Connecting to the Stellar network through various available wallets.
 * Performing queries directly to the Stellar Horizon API.
+[Horizon API](https://developers.stellar.org/docs/data/horizon/api-reference)
 * Utilizing Rust crates for streamlined API interactions.
 
 [Github](https://github.com/cirqueira-labs/stellar-tui.git)
+
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/8906eaw29ykwde6vlzwk.png)
+
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/40smrsygbx0jfidct06a.png)
 
 ## Journey
 
@@ -35,6 +41,7 @@ I'm also incredibly hopeful about attending Meridian 2024—fingers crossed that
 ## Team Submissions 
 Me: cirqueira-labs (Discord: cirqueira5650)
 E-mail: jccirqueira@outlook.com 
+
 
 ## Running
 clone the repo
