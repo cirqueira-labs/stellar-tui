@@ -35,3 +35,7 @@ I'm also incredibly hopeful about attending Meridian 2024—fingers crossed that
 ## Team Submissions 
 Me: cirqueira-labs (Discord: cirqueira5650)
 E-mail: jccirqueira@outlook.com 
+
+## Running
+clone the repo
+cargo run
